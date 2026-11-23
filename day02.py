@@ -313,3 +313,56 @@ for key in sales:
 
 print(total)
 print(count)
+
+# Day02 - Question 14
+
+products = [
+    {"name": "Laptop", "cost": 800, "price": 1200},
+    {"name": "Mouse", "cost": 20, "price": 40},
+    {"name": "Monitor", "cost": 250, "price": 350},
+    {"name": "Keyboard", "cost": 90, "price": 150}
+]
+
+# Write Python code to:
+# 1. Calculate the profit for each product (price - cost).
+# 2. Store each profit in a new list called profits.
+# 3. Calculate the total profit.
+# 4. Print the list and the total profit.
+# 5. Use a for loop.
+
+profits = []
+total = 0
+
+for key in products:
+    profits.append(key["price"] - key["cost"])
+
+for i in profits:
+    total += i
+
+print(profits)
+print(total)
+
+# Day02 - Question 15
+
+products = [
+    {"name": "Laptop", "cost": 800, "price": 1200},
+    {"name": "Mouse", "cost": 20, "price": 40},
+    {"name": "Monitor", "cost": 250, "price": 350},
+    {"name": "Keyboard", "cost": 90, "price": 150},
+    {"name": "Tablet", "cost": 400, "price": 700}
+]
+
+# Write Python code to:
+# 1. Calculate the profit for each product.
+# 2. Find products with profit greater than 100.
+# 3. Store their names in a new list called high_profit.
+# 4. Print the list.
+# 5. Use a for loop and an if statement.
+
+high_profit = []
+
+for key in products:
+    if key["price"] - key["cost"] > 100:
+        high_profit.append(key["name"])
+
+print(high_profit)
