@@ -469,3 +469,395 @@ inventory["Monitor"] = 8
 
 print(inventory)
 
+# Day02 - Question 20
+
+products = [
+    {"name": "Laptop", "category": "Electronics"},
+    {"name": "Desk", "category": "Furniture"},
+    {"name": "Mouse", "category": "Electronics"},
+    {"name": "Chair", "category": "Furniture"},
+    {"name": "Monitor", "category": "Electronics"}
+]
+
+# Write Python code to:
+# 1. Count the number of products in each category.
+# 2. Store the results in a dictionary called counts.
+# 3. Use a for loop and an if statement.
+# 4. Do not create separate variables for each category.
+# 5. Print the dictionary.
+
+counts = {}
+
+for key in products:
+    category = key["category"]
+
+    if category not in counts:
+        counts[category] = 0
+
+    counts[category] += 1
+
+print(counts)
+
+# Day02 - Question 21
+
+sales = [
+    {"category": "Electronics", "revenue": 1200},
+    {"category": "Furniture", "revenue": 500},
+    {"category": "Electronics", "revenue": 800},
+    {"category": "Clothing", "revenue": 300},
+    {"category": "Furniture", "revenue": 700}
+]
+
+# Write Python code to:
+# 1. Calculate total revenue for each category.
+# 2. Store the results in a dictionary called totals.
+# 3. Use a for loop and an if statement.
+# 4. Print the dictionary.
+
+totals = {}
+
+for key in sales:
+    category = key["category"]
+
+    if category not in totals:
+        totals[category] = 0
+
+    totals[category] += key["revenue"]
+
+print(totals)
+
+# Day02 - Question 22
+
+totals = {
+    "Electronics": 2000,
+    "Furniture": 1200,
+    "Clothing": 300
+}
+
+# Write Python code to:
+# 1. Find the category with the highest total revenue.
+# 2. Print the category name and revenue.
+# 3. Use a for loop and an if statement.
+# 4. Do not use max().
+
+largest = 0
+name = ""
+
+for key in totals:
+    if totals[key] > largest:
+        largest = totals[key]
+        name = key
+
+print(name, largest)
+
+# Day02 - Question 23
+
+salaries = {
+    "Alice": 70000,
+    "Bob": 45000,
+    "Charlie": 85000,
+    "David": 55000
+}
+
+# Write Python code to:
+# 1. Find the employee with the lowest salary.
+# 2. Print the employee's name and salary.
+# 3. Use a for loop and an if statement.
+# 4. Do not use min().
+
+lowest = float("inf")
+name = ""
+
+for key in salaries:
+    if salaries[key] < lowest:
+        lowest = salaries[key]
+        name = key
+print(name, lowest)
+
+# Day02 - Question 24
+
+employees = [
+    {"name": "Alice", "department": "IT", "salary": 70000},
+    {"name": "Bob", "department": "Sales", "salary": 55000},
+    {"name": "Charlie", "department": "IT", "salary": 80000},
+    {"name": "David", "department": "Sales", "salary": 65000},
+    {"name": "Emma", "department": "IT", "salary": 75000}
+]
+
+# Write Python code to:
+# 1. Calculate the average salary for each department.
+# 2. Store the results in a dictionary called averages.
+# 3. Use for loops.
+# 4. Do not create separate variables for IT and Sales.
+# 5. Print the dictionary.
+
+averages = {}
+counts = {}
+
+for key in employees:
+    dept = key["department"]
+
+    if dept not in averages:
+        averages[dept] = 0
+        counts[dept] = 0
+
+    averages[dept] += key["salary"]
+    counts[dept] += 1
+
+for dept in averages:
+    averages[dept] /= counts[dept]
+
+print(averages)
+
+# Day02 - Question 25
+
+sales = [
+    {"category": "Food", "amount": 100},
+    {"category": "Drink", "amount": 50},
+    {"category": "Food", "amount": 200},
+    {"category": "Drink", "amount": 150}
+]
+
+# Write Python code to:
+# 1. Calculate the total sales for each category.
+# 2. Count the number of sales records in each category.
+# 3. Store the average sales in a dictionary called averages.
+# 4. Print the dictionary.
+
+averages = {}
+counts = {}
+
+for key in sales:
+    category = key["category"]
+
+    if category not in averages:
+        averages[category] = 0
+        counts[category] = 0
+
+    averages[category] += key["amount"]
+    counts[category] += 1
+
+for category in averages:
+    averages[category] /= counts[category]
+
+print(averages)
+
+# Day02 - Question 26
+
+employees = [
+    {"name": "Alice", "department": "IT", "salary": 70000},
+    {"name": "Bob", "department": "Sales", "salary": 55000},
+    {"name": "Charlie", "department": "IT", "salary": 80000},
+    {"name": "David", "department": "Sales", "salary": 65000},
+    {"name": "Emma", "department": "IT", "salary": 75000}
+]
+
+averages = {
+    "IT": 75000,
+    "Sales": 60000
+}
+
+# Write Python code to:
+# 1. Find employees earning more than their department's average salary.
+# 2. Store their names in a list called high_earners.
+# 3. Use a for loop and an if statement.
+# 4. Print the list.
+
+high_earners = []
+
+for key in employees:
+    dept = key["department"]
+
+    if key["salary"] > averages[dept]:
+        high_earners.append(key["name"])
+
+print(high_earners)
+
+# Day02 - Question 27
+
+products = [
+    {"name": "Laptop", "price": 1200},
+    {"name": "Mouse", "price": 40},
+    {"name": "Monitor", "price": 350},
+    {"name": "Keyboard", "price": 150},
+    {"name": "Tablet", "price": 760}
+]
+
+# Write Python code to:
+# 1. Calculate the average price of all products.
+# 2. Find products with a price below the average.
+# 3. Store their names in a list called cheap_products.
+# 4. Print the list.
+# 5. Use for loops and an if statement.
+
+cheap_products = []
+
+total = 0
+count = 0
+
+for key in products:
+    total += key["price"]
+    count += 1
+average = total / count
+
+for key in products:
+    if key["price"] < average:
+        cheap_products.append(key["name"])
+
+print(cheap_products)
+
+# Day02 - Question 28
+
+products = [
+    {"name": "Laptop", "category": "Electronics", "cost": 800, "price": 1200},
+    {"name": "Desk", "category": "Furniture", "cost": 200, "price": 350},
+    {"name": "Mouse", "category": "Electronics", "cost": 20, "price": 50},
+    {"name": "Chair", "category": "Furniture", "cost": 100, "price": 180},
+    {"name": "Tablet", "category": "Electronics", "cost": 400, "price": 700}
+]
+
+# Write Python code to:
+# 1. Calculate the profit (price - cost) for each product.
+# 2. Calculate the total profit for each category.
+# 3. Store the results in a dictionary called profits.
+# 4. Use a for loop and an if statement.
+# 5. Print the dictionary.
+
+profits = {}
+
+for key in products:
+    category = key["category"]
+    profit = key["price"] - key["cost"]
+
+    if category not in profits:
+        profits[category] = 0
+
+    profits[category] += profit
+
+print(profits)
+
+# Day02 - Question 29
+
+expenses = [
+    {"department": "IT", "amount": 500},
+    {"department": "HR", "amount": 300},
+    {"department": "IT", "amount": 700},
+    {"department": "Sales", "amount": 400},
+    {"department": "HR", "amount": 200}
+]
+
+# Write Python code to:
+# 1. Calculate total expenses for each department.
+# 2. Store the results in a dictionary called totals.
+# 3. Use a for loop and an if statement.
+# 4. Print the dictionary.
+
+totals = {}
+
+for key in expenses:
+    dept = key["department"]
+
+    if dept not in totals:
+        totals[dept] = 0
+
+    totals[dept] += key["amount"]
+
+print(totals)
+
+# Day02 - Question 30
+
+totals = {
+    "IT": 1200,
+    "HR": 500,
+    "Sales": 400,
+    "Marketing": 1500
+}
+
+# Write Python code to:
+# 1. Find the department with the highest total expenses.
+# 2. Print the department name and its total expenses.
+# 3. Use a for loop and an if statement.
+# 4. Do not use max().
+
+highest = 0
+name = ""
+
+for key in totals:
+    if totals[key] > highest:
+        highest = totals[key]
+        name = key
+
+print(name, highest)
+
+# Day02 - Question 31
+
+employees = [
+    {"name": "Alice", "salary": 70000, "performance": 85},
+    {"name": "Bob", "salary": 55000, "performance": 92},
+    {"name": "Charlie", "salary": 80000, "performance": 78},
+    {"name": "David", "salary": 65000, "performance": 90},
+    {"name": "Emma", "salary": 75000, "performance": 88}
+]
+
+# Write Python code to:
+# 1. Find employees whose salary is at least 60,000 
+# AND performance score is at least 85.
+# 2. Store their names in a list called eligible.
+# 3. Use a for loop and an if statement.
+# 4. Print the list.
+
+eligible = []
+
+for key in employees:
+    if key["salary"] >= 60000 and key["performance"] >= 85:
+        eligible.append(key["name"])
+
+print(eligible)
+
+# Day02 - Question 32
+
+inventory = [
+    {"name": "Laptop", "stock": 5, "price": 1200},
+    {"name": "Mouse", "stock": 20, "price": 40},
+    {"name": "Monitor", "stock": 3, "price": 350},
+    {"name": "Keyboard", "stock": 8, "price": 150},
+    {"name": "Tablet", "stock": 2, "price": 800}
+]
+
+# Write Python code to:
+# 1. Find products with stock less than 10 AND price greater than 200.
+# 2. Store their names in a list called restock.
+# 3. Use a for loop and an if statement.
+# 4. Print the list.
+
+restock = []
+
+for key in inventory:
+    if key["stock"] < 10 and key["price"] > 200:
+        restock.append(key["name"])
+
+print(restock)
+
+# Day02 - Question 33
+
+employees = [
+    {"name": "Alice", "department": "IT", "performance": 85},
+    {"name": "Bob", "department": "Sales", "performance": 65},
+    {"name": "Charlie", "department": "IT", "performance": 55},
+    {"name": "David", "department": "HR", "performance": 72},
+    {"name": "Emma", "department": "Sales", "performance": 60}
+]
+
+# Write Python code to:
+# 1. Find employees whose performance score is below 70 OR whose department is HR.
+# 2. Store their names in a list called training.
+# 3. Use a for loop and an if statement.
+# 4. Print the list.
+
+training = []
+
+for key in employees:
+    if key["performance"] < 70 or key["department"] == "HR":
+        training.append(key["name"])
+
+print(training)
