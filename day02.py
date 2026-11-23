@@ -366,3 +366,106 @@ for key in products:
         high_profit.append(key["name"])
 
 print(high_profit)
+
+# Day02 - Question 16
+
+sales = [
+    {"department": "IT", "revenue": 5000},
+    {"department": "Sales", "revenue": 3000},
+    {"department": "IT", "revenue": 7000},
+    {"department": "HR", "revenue": 2000},
+    {"department": "Sales", "revenue": 4000}
+]
+
+# Task:
+
+# Write Python code to:
+# 1. Calculate total revenue for each department.
+# 2. Store the results in a new dictionary called totals.
+# 3. Print the dictionary.
+# 4. Use a for loop.
+
+IT = 0
+Sales = 0
+HR = 0
+
+totals = {}
+
+for key in sales:
+    if key["department"] == "IT":
+        IT += key["revenue"]
+    if key["department"] == "Sales":
+        Sales += key["revenue"]
+    if key["department"] == "HR":
+        HR += key["revenue"]
+
+totals["IT"] = IT
+totals["Sales"] = Sales
+totals["HR"] = HR
+
+print(totals)
+
+# Day02 - Question 17
+
+employees = [
+    {"name": "Alice", "department": "IT"},
+    {"name": "Bob", "department": "Sales"},
+    {"name": "Charlie", "department": "IT"},
+    {"name": "David", "department": "HR"},
+    {"name": "Emma", "department": "Sales"},
+    {"name": "Frank", "department": "IT"}
+]
+
+# Write Python code to:
+# 1. Count the number of employees in each department.
+# 2. Store the results in a dictionary called counts.
+# 3. Print the dictionary.
+# 4. Use a for loop.
+# 5. Do not create separate variables for IT, Sales, and HR.
+
+counts = {}
+
+for key in employees:
+    dept = key["department"]
+
+    if dept not in counts:
+        counts[dept] = 0
+
+    counts[dept] += 1
+
+print(counts)
+
+# Day02 - Question 18
+
+counts = {"IT": 3, "Sales": 2}
+
+# Write Python code to:
+# 1. Add a new department "HR" with 1 employee.
+# 2. Increase the "Sales" employee count by 2.
+# 3. Print the updated dictionary.
+
+counts["HR"] = 1
+counts["Sales"] += 2
+
+print(counts)
+
+# Day02 - Question 19
+
+inventory = {
+    "Laptop": 10,
+    "Mouse": 25,
+    "Keyboard": 15
+}
+
+# Write Python code to:
+# 1. Increase the Laptop stock by 5.
+# 2. Decrease the Mouse stock by 10.
+# 3. Add a new product "Monitor" with stock 8.
+# 4. Print the updated dictionary.
+
+inventory["Laptop"] += 5
+inventory["Mouse"] -= 10
+inventory["Monitor"] = 8
+
+print(inventory)
+
