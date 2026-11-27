@@ -156,3 +156,125 @@ for dept in totals:
         remaining[dept] = budgets[dept] - totals[dept]
 
 print(remaining)
+
+# Day06 - Question 10
+
+# Calculate what percentage of budget is remaining for each department. 
+
+# Save name and percentage of department with percentage 20% or more 
+# in dictionary selected.
+
+# Result: {'HR': 20.0, 'Admin': 40.0}
+
+remaining = {"HR": 20, "Admin": 50, "IT": 10}
+budgets = {"HR": 100, "Admin": 125, "IT": 200}
+selected = {}
+
+for dept in remaining:
+    rate = remaining[dept] / budgets[dept] * 100
+    if rate >= 20:
+        selected[dept] = rate
+
+print(selected)
+
+# Day 6 - Question 11
+
+# Calculate what percentage is remaining from company total budget
+# by dividing total remaining by total budget.
+
+# Result: 20.0
+
+remaining = {"HR": 20, "Admin": 50, "IT": 10}
+budgets = {"HR": 100, "Admin": 125, "IT": 175}
+
+total_remaining = 0
+total_budget = 0
+
+for dept in remaining:
+    total_remaining += remaining[dept]
+
+for dept in budgets:
+    total_budget += budgets[dept]
+
+print(total_remaining / total_budget * 100)
+
+# Day 6 - Question 12
+
+# Pick accounts payable (paid = False) 
+# and add accounts payable of each department into dictionary unpaid.
+
+# Result: {'IT': 150, 'HR': 80}
+
+invoices = [
+    {"dept": "IT", "amount": 120, "paid": False},
+    {"dept": "HR", "amount": 50, "paid": True},
+    {"dept": "IT", "amount": 30, "paid": False},
+    {"dept": "HR", "amount": 80, "paid": False},
+]
+
+unpaid = {}
+
+for invoice in invoices:
+    if invoice["paid"] == False:
+        dept = invoice["dept"]
+
+        if dept not in unpaid:
+            unpaid[dept] = 0
+
+        unpaid[dept] += invoice["amount"]
+
+print(unpaid)
+
+# Day 6 - Question 13
+
+# Pick invoice where paid == True and 
+# Calculate total amount of each department in dictionary paid_totals.
+
+# Result: {'IT': 140, 'HR': 70}
+
+invoices = [
+    {"dept": "IT", "amount": 100, "paid": True},
+    {"dept": "HR", "amount": 50, "paid": False},
+    {"dept": "IT", "amount": 40, "paid": True},
+    {"dept": "HR", "amount": 70, "paid": True},
+]
+
+paid_totals = {}
+
+for invoice in invoices:
+    if invoice["paid"] == True:
+        dept = invoice["dept"]
+
+        if dept not in paid_totals:
+            paid_totals[dept] = 0
+
+        paid_totals[dept] += invoice["amount"]
+
+print(paid_totals)
+
+# Day 6 - Question 14
+
+# Count "paid" = True for each department
+# and save in dictionary paid_counts.
+
+# Result: {'IT': 2, 'HR': 1}
+
+invoices = [
+    {"dept": "IT", "amount": 100, "paid": True},
+    {"dept": "HR", "amount": 50, "paid": False},
+    {"dept": "IT", "amount": 40, "paid": True},
+    {"dept": "HR", "amount": 70, "paid": True},
+]
+
+paid_counts = {}
+
+for invoice in invoices:
+    if invoice["paid"] == True:
+        dept = invoice["dept"]
+
+        if dept not in paid_counts:
+            paid_counts[dept] = 0
+
+        paid_counts[dept] += 1
+
+print(paid_counts)
